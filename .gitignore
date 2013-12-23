@@ -1,0 +1,6 @@
+results*.txt
+stats.out
+build
+results.out
+.DS_Store
+*.log

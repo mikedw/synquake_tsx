@@ -1,0 +1,21 @@
+" ============================================================================
+" Netrw Directory Listing                                        (netrw v145)
+"   /home/wangdai/repos/hsynquake/src/server
+"   Sorted by time
+"   Quick Help: <F1>:help  -:go up dir  D:delete  R:rename  s:sort-by  x:exec
+" ============================================================================
+loadbal/
+server.c
+server.h
+server_cl.c
+server_cl.h
+server_stats.h
+syn_server_cl.h
+syn_server_traces.h
+syn_server_cl.c
+sgame/
+server_stats.c
+syn_server.c
+syn_server_traces.c
+../
+.swp
