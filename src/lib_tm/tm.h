@@ -15,7 +15,7 @@
   static Mutex tm_mutex;
 
 # define BEGIN_TRANSACTION();     \
-   Transaction tm_guard(tm_mutex, 1); \
+   Transaction tm_guard(tm_mutex, 5); \
    tm_guard.TransactionStart();
 
 # define END_TRANSACTION();		tm_guard.TransactionEnd();

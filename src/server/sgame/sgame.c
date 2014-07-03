@@ -362,7 +362,6 @@ void tm_game_multiple_action( tm_sv_client_t* cl, int cycle )
 	now_0 = get_c();
 
 	BEGIN_TRANSACTION();
-
 	for( i_act = 0; i_act < sv.n_multiple_actions; i_act++ )
 	{
 		ctx[i_act].a_id = cl-> m_actions[i_act][M_ACT_ID];
@@ -387,11 +386,11 @@ void tm_game_multiple_action( tm_sv_client_t* cl, int cycle )
 		ctx[i_act].act_r = tm_game_action_range( ctx[i_act].a_id, pl, &tm_wm.map_r );
 
 		//       Process leaves
-		now_1 = get_c();
+		//now_1 = get_c();
 		ctx[i_act].pan_set_leaves = tm_worldmap_get_leaves( &ctx[i_act].act_r );
-		time_get_nodes += (get_c() - now_1);
-		if( now_1 >= sv.wl_stop )       
-		   break;
+		//time_get_nodes += (get_c() - now_1);
+		//if( now_1 >= sv.wl_stop )
+		//   break;
 
 		tm_parea_node_set_for_each( pos, ctx[i_act].pan_set_leaves )
 		{
@@ -409,9 +408,9 @@ void tm_game_multiple_action( tm_sv_client_t* cl, int cycle )
 		#endif
 		{
 			log_info3( "%x - game_action_parents pl: %x  a_id: %d\n\n\n", p_thread_id, (unsigned)pl, i_act );
-			now_1 = get_c();
+			//now_1 = get_c();
 			ctx[i_act].pan_set_parents = tm_worldmap_get_parents( &ctx[i_act].act_r );
-			time_get_nodes += (get_c() - now_1);
+			//time_get_nodes += (get_c() - now_1);
 
 			tm_parea_node_set_for_each( pos, ctx[i_act].pan_set_parents )
 			{
@@ -431,9 +430,12 @@ void tm_game_multiple_action( tm_sv_client_t* cl, int cycle )
 		ctx[i_act].final_acc = acc;
 		if( ctx[i_act].a_id == AC_MOVE && acc == 0 && sv.move_fail_stop )	
 		   break;
+
 	}
 
 	END_TRANSACTION();
+
+
 	now_2 = get_c();
 
 	int i;

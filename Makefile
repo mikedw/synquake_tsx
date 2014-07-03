@@ -5,8 +5,8 @@
 ####################################################################################################
 
 ## Compilation parameters
-CC =  /opt/gcc-4.8/bin/gcc
-CXX =  /opt/gcc-4.8/bin/g++
+CC =  gcc
+CXX = g++
 MACHINE = `uname -n`
 
 ifeq ($(DEBUG), )
